@@ -1,0 +1,169 @@
+1.Challenge
+To collect the flag by reading the flag file in the home directory using cat.
+
+Thought Process
+The cat command is commonly used to read file contents. In this case, the flag has been copied to a file named flag in the home directory. I needed to use cat to display the contents of the file.
+
+Solution
+I used the following command:
+
+bash
+cat ~/flag
+Upon execution, I received the flag.
+
+
+2. Challenge
+To collect the flag by reading the /flag file using cat and its absolute path.
+
+Thought Process
+In this challenge, I had to use the cat command again, but this time the flag wasn't in my home directory. Instead, it was located in the /flag file, which I needed to read using its absolute path. The absolute path specifies the complete location of a file, starting from the root directory (/).
+
+Solution
+I used the following command:
+
+bash
+cat /flag
+Upon execution, I received the flag.
+
+3.Challenge
+To collect the flag by reading it from an absolute path, without using cd to change directories.
+
+Thought Process
+In this challenge, the flag was placed in a "crazy" directory, and I was not allowed to use cd to navigate. Instead, I had to use the cat command with the absolute path of the flag file to retrieve it, similar to the previous challenge.
+
+Solution
+I located the flag by using its absolute path:
+
+bash
+cat /path/to/crazy/directory/flag
+Upon execution, I received the flag.
+4.Challenge
+To collect the flag by searching for it within a large file using the grep command.
+
+Thought Process
+In this challenge, I needed to use the grep command to search through a large file. The grep command is used to search for specific strings or patterns in a file and print out the lines that contain them. I knew the flag always starts with "pwn.college," so I could use that as my search string.
+
+Solution
+I used the following command to search for the flag in the file:
+
+bash
+grep pwn.college /challenge/data.txt
+Upon execution, I received the flag
+5.Challenge
+To list the contents of a directory using the ls command.
+
+Thought Process
+The ls command is used to list the contents of a directory. If no arguments are provided, ls lists the contents of the current directory. When a directory is passed as an argument, ls lists the contents of that directory instead.
+
+In this challenge, I needed to use ls to explore directories and view their contents.
+
+Solution
+I used the following command to list the contents of the /challenge directory:
+
+bash
+ls /challenge
+This showed the files available in the directory.
+5.Challenge
+To collect the flag by creating two files, /tmp/pwn and /tmp/college, using the touch command and then running /challenge/run.
+
+Thought Process
+The touch command is used to create a new, empty file. In this challenge, I needed to create two files in the /tmp directory using touch, and then execute the program located at /challenge/run to get the flag.
+
+Solution
+I used the following commands to create the required files:
+
+bash
+touch /tmp/pwn
+touch /tmp/college
+After creating the files, I ran the challenge program with the command:
+
+bash
+/challenge/run
+Upon execution, I received the flag.
+6.Challenge
+To collect the flag by deleting the delete_me file in the home directory using the rm command and then running /challenge/check.
+
+Thought Process
+The rm command is used to remove files from the system. In this challenge, I needed to delete a file named delete_me located in my home directory and then run the program /challenge/check to verify the deletion and obtain the flag.
+
+Solution
+I used the following command to delete the file:
+
+bash
+rm ~/delete_me
+After removing the file, I ran the challenge program with:
+
+bash
+/challenge/check
+Upon execution, I received the flag.
+7.Challenge
+To collect the flag by following clues hidden in various files throughout the filesystem.
+
+Thought Process
+In this challenge, I was tasked with finding the flag by following a series of clues hidden in files. I began at the root directory (/) and needed to use the ls and cat commands to uncover the clues that would lead me to the flag.
+
+Solution
+I started by navigating to the root directory:
+bash
+cd /
+I listed the contents to find a clue:
+bash
+ls
+I identified the file (HINT or CLUE) and read it using cat:
+bash
+cat HINT
+Based on the clue, I followed the next steps as directed by the contents of the file. This process continued until I reached the final location of the flag.
+Upon following all clues, I successfully found the flag.
+8.Challenge
+To collect the flag by creating a /tmp/pwn directory and adding a file named college within it, then running /challenge/run.
+
+Thought Process
+In this challenge, I learned to create directories using the mkdir command. After creating the required directory, I would need to create a file inside it and then execute the /challenge/run program to collect the flag.
+
+Solution
+I created the directory with the following command:
+bash
+mkdir /tmp/pwn
+I navigated into the newly created directory:
+bash
+cd /tmp/pwn
+I created the file named college:
+bash
+touch college
+Finally, I ran the challenge program to collect the flag:
+bash
+/challenge/run
+Upon execution, I received the flag.
+Challenge
+To collect the flag by using the find command to search for the file named flag hidden in a random directory on the filesystem.
+
+Thought Process
+In this challenge, I was tasked with locating the flag file hidden somewhere in the filesystem. The find command is useful for searching files based on various criteria, including name and location. I would need to search the entire filesystem for the file named flag.
+
+Solution
+I initiated the search for the file named flag across the entire filesystem:
+
+bash
+find / -name flag 2>/dev/null
+(The 2>/dev/null part is used to suppress error messages about inaccessible directories.)
+
+As I received results, I inspected each instance of the flag file until I found the one that contained the actual flag.
+
+Upon locating the correct flag file, I collected the flag.
+10.Challenge
+To collect the flag by creating a symbolic link to the file located at /flag and using the /challenge/catflag command to read it through the symlink.
+
+Thought Process
+In this challenge, I learned about symbolic links (symlinks) and how they can be used to redirect commands to access files from different locations. The ln -s command is used to create a symlink, which can then be accessed like the original file. The goal was to create a symlink that points to the /flag file and use the /challenge/catflag to retrieve the flag.
+
+Solution
+I created a symbolic link pointing to /flag using the following command:
+
+bash
+ln -s /flag /home/hacker/not-the-flag
+Next, I executed the command to read the flag through the symlink:
+
+bash
+/challenge/catflag
+Upon execution, I successfully retrieved the flag.
+
