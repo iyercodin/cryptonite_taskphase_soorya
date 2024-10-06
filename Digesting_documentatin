@@ -1,0 +1,123 @@
+Challenge
+In this level, I learned about the importance of reading documentation to understand how to properly use programs and their arguments.
+
+Thought Process
+When working with command-line programs, it's crucial to know the correct arguments to pass to them. This challenge specifically focused on the /challenge/challenge program and highlighted the need to provide the correct argument to retrieve the flag. The documentation provided indicated that the necessary argument was --giveflag.
+
+Solution
+I invoked the program with the required argument:
+bash
+/challenge/challenge --giveflag
+Executing the command successfully yielded the flag.
+
+2.Challenge
+In this level, I learned that while some commands are straightforward, others can have complex argument structures, such as commands that take arguments for their arguments.
+
+Thought Process
+For example, in this challenge, the /challenge/challenge program requires a two-layer argument structure. The first argument is --printfile, which itself requires a second argument specifying the file path of the flag to read. This pattern is similar to what I encountered with the find command's -name argument in the Basic Commands module.
+
+Solution
+I executed the program with the required arguments:
+bash
+/challenge/challenge --printfile /flag
+Executing this command correctly printed the contents of the flag.
+
+3.Challenge
+In this level, I learned about the man command, short for manual. The man command displays the manual page for any command you pass as an argument. For example, to learn about the yes command, you would run:
+
+bash
+hacker@dojo:~$ man yes
+This displays the manual page for the yes command, which includes sections such as NAME, SYNOPSIS, DESCRIPTION, and SEE ALSO.
+
+Key Sections:
+NAME: Provides the name and a short description of the command.
+SYNOPSIS: Shows the usage synopsis with valid command invocations.
+DESCRIPTION: Offers detailed explanations of the command and its options.
+SEE ALSO: Lists related resources or man pages.
+You can navigate through the man page using arrow keys and exit by pressing q.
+
+Solution
+The challenge involves finding a secret option that will cause the /challenge/challenge program to print the flag. I accessed the manual page for the challenge with:
+
+bash
+man challenge
+After reviewing the documentation, I discovered the secret option needed to retrieve the flag!
+
+Challenge
+To collect the flag by reading the man page for the challenge program and finding the secret option.
+
+Thought Process
+I understood that the man command can be used to read the manual for the challenge program. By navigating through the man page, I needed to find the specific option that would allow me to retrieve the flag.
+
+I recalled that I could scroll through the man pages using the arrow keys and search for specific terms using /. I also noted that I could search backwards using ? and navigate between search results with n and N.
+
+Solution
+I executed the command:
+
+bash
+man challenge
+Then, I searched for the relevant option using / to navigate the man page.
+
+Upon finding the correct option, I used it to retrieve the flag
+
+5.Challenge
+In this level, the objective is to collect the flag by finding the hidden man page for the challenge program, which is disguised by a random name.
+
+Thought Process
+To tackle this challenge, I needed to learn how to search through the man page database, as the name of the man page for the challenge program was not straightforward. To achieve this, I decided to first explore the man command itself, which would guide me on how to navigate and search within the man pages effectively.
+
+Solution Steps
+Read the Man Page for man: I executed the command:
+
+bash
+man man
+This provided me with valuable insights into the functionalities of the man command, including options for searching through man pages.
+
+Search for the Hidden Man Page: Armed with this knowledge, I used the following command to search for any man pages related to the challenge:
+
+bash
+man -k challenge
+This command lists all man pages that contain the keyword "challenge," helping me locate the entry for the challenge program.
+
+Access the Challenge Program: After identifying the appropriate man page, I followed the instructions to run the challenge program. I executed:
+
+bash
+/challenge/challenge
+This command invoked the challenge program, successfully returning the flag.
+
+By understanding how to search for man pages and using the information effectively, I was able to navigate this tricky level and collect the flag.
+
+6. Challenge
+To collect the flag by invoking a program with a special argument to access its help documentation.
+
+Thought Process
+Many programs may not have a man page available but can still provide usage instructions when called with specific arguments. The most common argument for this purpose is --help, although other options like -h, -?, or even help might also work. Recognizing these variations is key to efficiently using command-line programs.
+
+Solution
+Invoke the Program with Help Argument: I executed the following command to see the available options:
+
+bash
+/challenge/challenge --help
+Review the Output: The program displayed its usage information, which outlined the proper way to run it and any relevant flags.
+
+Execute the Correct Command: Based on the information provided by the help documentation, I ran the command to collect the flag.
+
+This exercise highlights the importance of exploring program help options when documentation is not available through traditional means like man pages, improving command-line proficiency for future tasks.
+6. challenge
+To collect the flag by using a shell builtin command after checking its help documentation.
+
+Thought Process
+Builtins are commands integrated into the shell that do not require external programs or man pages. To find useful information on these commands, I can use the help command.
+
+Solution
+List All Builtins: I ran:
+
+bash
+help
+Check Help for the Challenge Command: I looked up the relevant builtin:
+
+bash
+help challenge
+Review the Help Output: The help documentation provided the necessary usage details.
+
+Execute the Command: Using the secret value from the help output, I ran the command and collected the flag.
