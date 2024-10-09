@@ -1,0 +1,112 @@
+Globbing with *
+
+## Challenge
+
+Change to `/challenge` using globbing, ensuring the `cd` argument is no more than four characters, then run `/challenge/run` to collect the flag.
+
+## Thought Process
+
+The `*` wildcard matches any part of a filename, except `/` and leading dots. To meet the four-character constraint, I used `cha*`, which matches `/challenge`. After navigating to the directory, I could execute `/challenge/run` to complete the task.
+
+## Solution
+
+```bash
+cd cha*
+/challenge/run
+
+#11. Globbing with ?
+
+## Challenge
+
+Change to `/challenge` using the `?` wildcard to replace the characters "c" and "l" in the argument to `cd`, then execute `/challenge/run` to collect the flag.
+
+## Thought Process
+
+The `?` wildcard matches exactly one character. In this challenge, I had to replace two characters, "c" and "l", in the `/challenge` directory name. By using the `?` in place of each of these letters, I could form a valid pattern that matches `/challenge`. The pattern `/?ha??enge` effectively replaces "c" and "l", making it possible to navigate to the correct directory.
+
+After using the correct pattern to change to the `/challenge` directory, I executed `/challenge/run` to complete the task.
+
+## Solution
+
+```bash
+cd /?ha??enge
+/challenge/run
+
+
+
+#12. Globbing with []
+
+## Challenge
+
+Change your working directory to `/challenge/files` and run `/challenge/run` with a single argument that uses bracket-globbing to match `file_b`, `file_a`, `file_s`, and `file_h`.
+
+## Thought Process
+
+The square brackets `[]` are used as a restricted form of the `?` wildcard, allowing us to match specific characters within a given set. For this challenge, I needed to match multiple files (`file_b`, `file_a`, `file_s`, and `file_h`) using a single argument with the bracket wildcard.
+
+By using `file_[bash]`, I created a pattern that matches any file with `file_` followed by one of the characters inside the brackets, specifically "b", "a", "s", or "h". After changing to the `/challenge/files` directory, I used this pattern as the argument for `/challenge/run`.
+
+## Solution
+
+```bash
+cd /challenge/files
+/challenge/run file_[bash]
+
+
+
+#13. Path-Based Globbing
+
+## Challenge
+
+Starting from your home directory, run `/challenge/run` with a single argument that uses bracket-globbing to match the absolute paths to `file_b`, `file_a`, `file_s`, and `file_h` located in `/challenge/files`.
+
+## Thought Process
+
+Globbing works not only for filenames but also for entire paths. The challenge here is to glob the absolute paths of the files (`file_b`, `file_a`, `file_s`, and `file_h`) inside the `/challenge/files` directory. I used the pattern `/challenge/files/file_[bash]` to match all the specified files in the directory.
+
+This allows the shell to expand the paths into `/challenge/files/file_b`, `/challenge/files/file_a`, `/challenge/files/file_s`, and `/challenge/files/file_h` all at once.
+
+## Solution
+
+```bash
+/challenge/run /challenge/files/file_[bash]
+
+
+
+#14. Combining Globbing Techniques
+
+## Challenge
+
+Change to `/challenge/files` and use a single, short glob (6 characters or less) to match the files `"challenging"`, `"educational"`, and `"pwning"`.
+
+## Thought Process
+
+I needed a short glob (6 characters or less) that could match parts of the filenames `"challenging"`, `"educational"`, and `"pwning"`. All three filenames have a common ending: "ing". By using the wildcard `*` to match any preceding characters and `ing` to match the shared ending, I came up with the pattern `*ing`.
+
+This pattern efficiently matches all three files in one go.
+
+## Solution
+
+```bash
+cd /challenge/files
+ls *ing
+
+
+
+#15. Inverted Globbing with []
+
+## Challenge
+
+Run `/challenge/run` with all files in `/challenge/files` that **don't** start with "p", "w", or "n".
+
+## Thought Process
+
+Using the `[]` wildcard allows us to define specific character sets, and with the `!` or `^` at the beginning, it inverts the selection to match characters **not** in the set. To exclude files that start with "p", "w", or "n", I used `[!pwn]*`, which matches all files whose names start with any character except "p", "w", or "n".
+
+This glob pattern effectively filtered out any files beginning with "p", "w", or "n" from being passed to `/challenge/run`.
+
+## Solution
+
+```bash
+cd /challenge/files
+/challenge/run [!pwn]*
